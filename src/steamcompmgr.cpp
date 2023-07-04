@@ -4604,9 +4604,11 @@ init_runtime_info()
 {
 	const char *path = getenv( "GAMESCOPE_LIMITER_FILE" );
 	if ( !path )
+		xwm_log.info("Cannot open LIMITER file!");
 		return;
 
 	g_nRuntimeInfoFd = open( path, O_CREAT | O_RDWR , 0644 );
+	xwm_log.info("Opened LIMITER file!");
 	update_runtime_info();
 }
 
